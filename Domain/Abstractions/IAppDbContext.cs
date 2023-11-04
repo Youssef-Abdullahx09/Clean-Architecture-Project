@@ -9,5 +9,7 @@ namespace Domain.Abstractions
         DbSet<Invitation> Invitations { get; set; }
         DbSet<Gathering> Gatherings { get; set; }
         DbSet<Attendee> Attendees { get; set; }
+
+        Task SaveChangesAsync();
     }
 }
