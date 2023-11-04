@@ -1,8 +1,9 @@
 ﻿using Domain.Enums;
+using Domain.Primitives;
 
 namespace Domain.Entities;
 
-public class Gathering
+public sealed class Gathering : Entity
 {
     private Gathering(
         Guid id,
@@ -11,8 +12,8 @@ public class Gathering
         Member creator,
         GatheringType type,
         DateTime scheduledAtUtc)
+        : base(id)
     {
-        Id = id;
         Name = name;
         Location = location;
         Creator = creator;
@@ -22,7 +23,6 @@ public class Gathering
         _invitations = new List<Invitation>();
         _attendees = new List<Attendee>();
     }
-    public Guid Id { get; private set; }
     public string Name { get; private set; }
     public string Location { get; private set; }
     public GatheringType Type { get; private set; }

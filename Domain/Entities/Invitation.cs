@@ -1,18 +1,18 @@
 ﻿using Domain.Enums;
+using Domain.Primitives;
 
 namespace Domain.Entities
 {
-    public class Invitation
+    public class Invitation : Entity
     {
         internal Invitation(Guid id, Member member, Gathering gathering)
+            : base(id)
         {
-            Id = id;
             Member = member;
             Gathering = gathering;
             Status = InvitationStatus.Pending;
             CreatedOnUtc = DateTime.UtcNow;
         }
-        public Guid Id { get; private set; }
         public InvitationStatus Status { get; private set; }
         public Guid MemberId { get; private set; }
         public Member Member { get; private set; }
